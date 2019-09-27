@@ -76,7 +76,7 @@ public class seatAssign {
 		// System.out.println(assign);
 
 		String output = requestID + " " + assign;
-		write(output);
+		write(output, requestID);
 	}
 
 	public String assignHelper(int requestNum, String assign) {
@@ -112,13 +112,13 @@ public class seatAssign {
 	}
 
 	// rewrite file.txt and write assignment.txt
-	public void write(String output) {
+	public void write(String output, String requestID) {
 		// firstly we need to update the file.txt
 		Seat seat = new Seat();
 		seat.writeFile(seats);
 
 		// now we can write output files!
-		String filePath = "Assignments/assignment.txt";
+		String filePath = "Assignments/" + requestID +".txt";
 		try{
 			BufferedWriter out = new BufferedWriter(new FileWriter(filePath));
 			out.write(output);
